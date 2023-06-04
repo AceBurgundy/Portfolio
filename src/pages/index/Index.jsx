@@ -3,36 +3,50 @@ import styles from "./Index.module.css";
 import gsap from "gsap";
 
 const Index = () => {
-    const surname = ["S", "A", "B", "A", "L", "O"];
+    const surname = "Sabalo";
     const charRefs = useRef([]);
+    const message = "Full stack software developer from the Philippines";
+    const messageRefs = useRef([]);
 
     useEffect(() => {
-        
         const chars = charRefs.current;
         const timeline = gsap.timeline();
 
         timeline
-        
-        .to(chars, {
+
+            .to(chars, {
+                duration: 1,
+                delay: 0.5,
+                y: "0",
+                stagger: 0.05,
+            })
+
+            .to(chars, {
+                duration: 1,
+                delay: 0.2,
+                y: "-200%",
+                stagger: -0.05,
+            })
+
+            .to(
+                mainRef.current,
+                {
+                    y: "-100%",
+                    duration: 1,
+                    ease: "power2.out",
+                },
+                "<0.5"
+            );
+
+        const messageChars = messageRefs.current;
+        timeline
+
+        .to(messageChars, {
             duration: 1,
-            delay: 0.5,
             y: "0",
-            stagger: 0.05
-        })
-
-        .to(chars, {
-            duration: 1,
-            delay: 0.7,
-            y: "-200%",
-            stagger: -0.1,
-        })
-
-        .to(mainRef.current, {
-            y: "-100%",
-            duration: 1.5,
-            ease: "power2.out"
-        }, "<0.5");
-
+            stagger: 0.05,
+        }, "<0")
+        
     }, []);
 
     const loadingRef = useRef(null);
@@ -41,8 +55,9 @@ const Index = () => {
     return (
         <>
             <section id={styles.loading} className="page" ref={loadingRef}>
-                {surname.map((char, index) => (
+                {surname.split("").map((char, index) => (
                     <p
+                        id={styles.surname}
                         key={index}
                         ref={(element) => (charRefs.current[index] = element)}
                         className={styles.letter}
@@ -52,7 +67,19 @@ const Index = () => {
                 ))}
             </section>
             <section id={styles.main} className="page" ref={mainRef}>
-                <p id="hello">Hello</p>
+                <div id={styles.messageContainer}>
+                    {message.split(" ").map((char, index) => (
+                        <p
+                            id={styles.main_message}
+                            key={index}
+                            ref={(element) =>
+                                (messageRefs.current[index] = element)
+                            }
+                        >
+                            {char}
+                        </p>
+                    ))}
+                </div>
             </section>
         </>
     );

@@ -5,11 +5,28 @@
 }
 
 #main {
-    background-color: red;
     position: fixed;
 }
 
-p {
+#messageContainer {
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2rem;
+    height: fit-content;
+}
+
+#main_message {
+    font-family: "Bebas Neue";
+    font-size: 10vw;
+    height: 20%;
+    display: inline-block;
+    cursor: pointer;
+    overflow-y: hidden;
+    transform: translateY(200px);
+}
+
+#surname {
     overflow-y: hidden;
 }
 
