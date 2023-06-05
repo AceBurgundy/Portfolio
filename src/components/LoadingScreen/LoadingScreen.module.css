@@ -1,0 +1,16 @@
+#loading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-color: red;
+}
+
+.letter {
+    display: inline-block;
+    font-size: 45vw;
+    height: 44vw;
+    font-family: "Bebas Neue";
+    cursor: pointer;
+    overflow-y: hidden;
+    transform: translateY(700px);
+}

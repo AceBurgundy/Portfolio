@@ -1,0 +1,20 @@
+#selected_projects_title {
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    transform: translateY(500px);
+}
+
+.projectTitle {
+    font-family: "Bebas Neue";
+    font-size: 40vw;
+    height: 40vw;
+    display: inline-block;
+    cursor: pointer;
+    overflow-y: hidden;
+    transform: translateY(1000px);
+}

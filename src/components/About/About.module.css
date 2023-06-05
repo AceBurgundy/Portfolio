@@ -1,0 +1,38 @@
+#main {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    width: 100%;
+}
+
+#about_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.about_item {
+    width: 25%;
+    font-family: "Poppins";
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    position: relative;
+    transition: 500ms ease;
+    text-underline-position: under;
+    overflow: visible;
+    cursor: default;
+}
+
+.about_item:hover {
+    text-decoration: underline;
+}
+
+.surname {
+    font-family: "Bebas Neue";
+    font-size: 40vw;
+    line-height: 38vw;
+    display: inline-block;
+    cursor: pointer;
+    overflow-y: hidden;
+    transform: translateY(1000px);
+}
