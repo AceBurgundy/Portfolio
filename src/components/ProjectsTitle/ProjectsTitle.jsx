@@ -1,17 +1,15 @@
-import { ScrollTrigger } from "gsap/all";
+import MouseFollower from "../MouseFollower/MouseFollower";
 import React, { useEffect, useRef } from "react";
 import styles from "./ProjectsTitle.module.css";
 import gsap from "gsap";
 
-
 const ProjectsTitle = () => {
     const projectTitleString = "Works";
     const projectTitleChars = useRef([]);
-    const sectionRef = useRef(null)
+    const sectionRef = useRef(null);
     const titleRef = useRef(null);
 
     useEffect(() => {
-
         gsap.to(titleRef.current, {
             scrollTrigger: {
                 trigger: sectionRef.current,
@@ -19,7 +17,7 @@ const ProjectsTitle = () => {
             },
             y: 0,
             duration: 1,
-        })
+        });
 
         gsap.to(
             projectTitleChars.current,
@@ -33,28 +31,30 @@ const ProjectsTitle = () => {
         );
     });
 
-
     return (
-        <section id={styles.section} className="page" ref={sectionRef}>
-            <div id={styles.title} ref={titleRef} >
-                <header id={styles.header}>
-                    <p>2021</p>
-                    <div id={styles.line}></div>
-                    <p>Current</p>  
-                </header>
-                {projectTitleString.split("").map((char, index) => (
-                    <p
-                        className={styles.projectTitle}
-                        key={index}
-                        ref={(element) =>
-                            (projectTitleChars.current[index] = element)
-                        }
-                    >
-                        {char}
-                    </p>
-                ))}
-            </div>
-        </section>
+        <>
+            <section id={styles.section} className="page" ref={sectionRef}>
+                <MouseFollower boundTo={sectionRef}/>
+                <div id={styles.title} ref={titleRef}>
+                    <header id={styles.header} data-size="15px" data-color="green">
+                        <p>2021</p>
+                        <div id={styles.line}></div>
+                        <p>Current</p>
+                    </header>
+                    {projectTitleString.split("").map((char, index) => (
+                        <p
+                            className={styles.projectTitle}
+                            key={index}
+                            ref={(element) =>
+                                (projectTitleChars.current[index] = element)
+                            }
+                        >
+                            {char}
+                        </p>
+                    ))}
+                </div>
+            </section>
+        </>
     );
 };
 

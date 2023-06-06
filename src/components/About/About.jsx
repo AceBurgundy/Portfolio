@@ -24,15 +24,15 @@ const About = () => {
                 "<0"
             )
             .to(firstNameChars.current, {
-                duration: 0.8,
+                duration: 1,
                 delay: 1.3,
                 y: "0",
-                stagger: 0.1,
+                stagger: 0.2,
             })
 
             .to(lastNameChars.current, {
                 duration: 0.8,
-                delay: 1.3,
+                delay: .1,
                 y: "0",
                 stagger: 0.1,
             }, "<0");
