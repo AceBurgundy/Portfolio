@@ -11,6 +11,9 @@ import About from "../../components/About/About";
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
+
+    window.scrollTo({top: 0})
+    
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -30,7 +33,7 @@ const Index = () => {
             <LoadingScreen />
             <About />
             <ProjectsTitle />
-            <Gallery />
+            {/* <Gallery /> */}
         </>
     );
 };

@@ -1,43 +1,47 @@
+import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef } from "react";
 import styles from "./ProjectsTitle.module.css";
 import gsap from "gsap";
 
+
 const ProjectsTitle = () => {
     const projectTitleString = "Works";
     const projectTitleChars = useRef([]);
-    const selectedProjectsTitleRef = useRef(null)
+    const sectionRef = useRef(null)
+    const titleRef = useRef(null);
 
     useEffect(() => {
 
-        const timeline = gsap.timeline()
-        
-        timeline
-        
-            .to(selectedProjectsTitleRef.current, {
-                duration: 1,
-                y: 0,
-            })
-            
-            .to(
-                projectTitleChars.current,
-                {
-                    duration: 0.8,
-                    y: "0",
-                    stagger: 0.05,
-                },
-                "<0"
-            );
+        gsap.to(titleRef.current, {
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "25% bottom",
+            },
+            y: 0,
+            duration: 1,
+        })
+
+        gsap.to(
+            projectTitleChars.current,
+            {
+                scrollTrigger: sectionRef.current,
+                duration: 2.5,
+                y: "0",
+                stagger: 0.05,
+            },
+            "<0"
+        );
     });
 
+
     return (
-        <section
-            className="page"
-            style={{ backgroundColor: "yellow", height: "110vh" }}
-        >
-            <div
-                id={styles.selected_projects_title}
-                ref={selectedProjectsTitleRef}
-            >
+        <section id={styles.section} className="page" ref={sectionRef}>
+            <div id={styles.title} ref={titleRef} >
+                <header id={styles.header}>
+                    <p>2021</p>
+                    <div id={styles.line}></div>
+                    <p>Current</p>  
+                </header>
                 {projectTitleString.split("").map((char, index) => (
                     <p
                         className={styles.projectTitle}

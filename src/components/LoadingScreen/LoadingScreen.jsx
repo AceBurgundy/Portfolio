@@ -7,49 +7,65 @@ const LoadingScreen = () => {
     const surname = "Sam";
     const firstNameRefs = useRef([]);
     const loadingRef = useRef(null)
-    
+    const backgroundRef = useRef(null)
+
     useEffect(() => {
 
         const timeline = gsap.timeline();
 
         timeline
 
+            .to(
+                loadingRef.current,
+                {
+                    y: 0,
+                    duration: .7,
+                    height: "100dvh",
+                }
+            )
+
             .to(firstNameRefs.current, {
                 duration: 0.8,
-                delay: 1,
                 y: "0",
                 stagger: 0.05,
-            })
+            }, "<0")
 
             .to(
                 firstNameRefs.current,
                 {
-                    duration: 2,
+                    duration: 1,
                     delay: 0.4,
                     y: "-100%",
                     stagger: -0.1,
                 }
             )
+
             .to(
-                loadingRef.current,
+                backgroundRef.current,
                 {
-                    duration: 1.5,
-                    height: "0",
+                    duration: .5,
+                    y: "-100dvh",
                 }, "<0"
             )
     })
     return (
-        <section id={styles.loading} className="page" ref={loadingRef}>
-            {surname.split("").map((char, index) => (
-                <p
-                    key={index}
-                    ref={(element) => (firstNameRefs.current[index] = element)}
-                    className={styles.letter}
-                >
-                    {char}
-                </p>
-            ))}
-        </section>
+        <>
+            <section id={styles.background} className="page" ref={backgroundRef}>
+                <section id={styles.loading} className="page" ref={loadingRef}>
+                    {surname.split("").map((char, index) => (
+                        <p
+                            key={index}
+                            ref={(element) =>
+                                (firstNameRefs.current[index] = element)
+                            }
+                            className={styles.letter}
+                        >
+                            {char}
+                        </p>
+                    ))}
+                </section>
+            </section>
+        </>
     );
 };
 
