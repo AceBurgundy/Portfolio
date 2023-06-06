@@ -29,7 +29,3 @@ body {
   height: 100dvh;
   position: relative;
 }
-
-.page:nth-child(even) {
-  /* background-color: rgb(89, 89, 114); */
-}

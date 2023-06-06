@@ -3,23 +3,41 @@ import styles from "./About.module.css";
 import gsap from "gsap";
 
 const About = () => {
-
     const mainRef = useRef(null);
-    const message = "Sabalo";
+    const surname = "Sabalo";
+    const firstName = "Sam";
+
     const lastNameChars = useRef([]);
+    const firstNameChars = useRef([]);
 
     useEffect(() => {
-        
-        gsap.to(
-            lastNameChars.current,
-            {
-                duration: 1,
+        const timeline = gsap.timeline();
+
+        timeline
+
+            .to(
+                mainRef.current,
+                {
+                    duration: 0.5,
+                    y: "0",
+                },
+                "<0"
+            )
+            .to(firstNameChars.current, {
+                duration: 0.8,
+                delay: 1.3,
                 y: "0",
                 stagger: 0.1,
-            },
-            "<0"
-        )
-    })
+            })
+
+            .to(lastNameChars.current, {
+                duration: 0.8,
+                delay: 1.3,
+                y: "0",
+                stagger: 0.1,
+            }, "<0");
+    });
+
     return (
         <section id={styles.main} className="page" ref={mainRef}>
             <div id={styles.about_container}>
@@ -38,10 +56,23 @@ const About = () => {
                     functionality and deliver a beautiful user interface.
                 </p>
             </div>
-            <div>
-                {message.split("").map((char, index) => (
+            <div id={styles.nameContainer}>
+                <div id={styles.firstNameContainer}>
+                    {firstName.split("").map((char, index) => (
+                        <p
+                            className={styles.nameCharacter}
+                            key={index}
+                            ref={(element) =>
+                                (firstNameChars.current[index] = element)
+                            }
+                        >
+                            {char}
+                        </p>
+                    ))}
+                </div>
+                {surname.split("").map((char, index) => (
                     <p
-                        className={styles.surname}
+                        className={styles.nameCharacter}
                         key={index}
                         ref={(element) =>
                             (lastNameChars.current[index] = element)

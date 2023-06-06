@@ -1,7 +1,6 @@
 #main {
     display: grid;
     grid-template-rows: 1fr 2fr;
-    width: 100%;
 }
 
 #about_container {
@@ -27,7 +26,12 @@
     text-decoration: underline;
 }
 
-.surname {
+
+#firstNameContainer {
+    display: none;
+}
+
+.nameCharacter {
     font-family: "Bebas Neue";
     font-size: 40vw;
     line-height: 38vw;
@@ -35,4 +39,28 @@
     cursor: pointer;
     overflow-y: hidden;
     transform: translateY(1000px);
+}
+
+@media screen and (orientation: portrait) {
+    #main {
+        grid-template-rows: 1.5fr 1fr;
+    } 
+    #about_container {
+        flex-direction: column;
+        height: 100%;
+    }
+    .about_item {
+        width: 90%;
+        text-decoration: underline;
+        font-size: 1rem;
+    }
+    #nameContainer {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    #firstNameContainer {
+        display: flex;
+    }
+
 }
