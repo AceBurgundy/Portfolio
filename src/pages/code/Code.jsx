@@ -4,6 +4,7 @@ import worksData from "../../data/works.json";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 const colors = [
     "#0053ff",
@@ -40,9 +41,7 @@ const Code = () => {
         requestAnimationFrame(raf);
 
         if (works.length > 0) {
-
             sections.current.forEach((section) => {
-
                 gsap.to(section.querySelectorAll(".word"), {
                     scrollTrigger: {
                         trigger: section,
@@ -61,47 +60,53 @@ const Code = () => {
                         ease: "power2.out",
                     });
                 };
-        
+
                 window.addEventListener("mousemove", handleMouseMove);
-        
+
                 return () => {
                     window.removeEventListener("mousemove", handleMouseMove);
                 };
-
             });
         }
-
     }, [works]);
 
     return (
-        <div id={styles.workContainer}>
-            {works.map((work, index) => (
-                <section
-                    key={index}
-                    ref={(element) => (sections.current[index] = element)}
-                    style={{ backgroundColor: colors[index % colors.length] }}
-                    className={`page ${styles.section}`}
-                >
-                    <img
-                        className={styles.image}
-                        src={work.image}
-                        alt={work.title}
-                        ref={imageRef}
-                    />
+        <>
+            <LoadingScreen text="Works" backgroundColor="black" loadingColor="white"/>
+            <div id={styles.workContainer}>
+                {works.map((work, index) => (
+                    <section
+                        key={index}
+                        ref={(element) => (sections.current[index] = element)}
+                        style={{
+                            backgroundColor: colors[index % colors.length],
+                        }}
+                        className={`page ${styles.section}`}
+                    >
+                        <img
+                            className={styles.image}
+                            src={work.image}
+                            alt={work.title}
+                            ref={imageRef}
+                        />
 
-                    <div className={styles.titleContainer} ref={wordsContainer}>
-                        {[...work.title].map((char, charIndex) => (
-                            <p
-                                key={charIndex}
-                                className={`${styles.title} word`}
-                            >
-                                {char}
-                            </p>
-                        ))}
-                    </div>
-                </section>
-            ))}
-        </div>
+                        <div
+                            className={styles.titleContainer}
+                            ref={wordsContainer}
+                        >
+                            {[...work.title].map((char, charIndex) => (
+                                <p
+                                    key={charIndex}
+                                    className={`${styles.title} word`}
+                                >
+                                    {char}
+                                </p>
+                            ))}
+                        </div>
+                    </section>
+                ))}
+            </div>
+        </>
     );
 };
 
