@@ -19,15 +19,14 @@ gsap.registerPlugin(ScrollTrigger);
 const Code = () => {
     const sections = useRef([]);
     const wordsContainer = useRef(null);
+    const imageRef = useRef(null);
 
     const [works, setWorks] = useState([]);
 
     useEffect(() => {
         setWorks(worksData.works);
         window.scrollTo(0, 0);
-    }, []);
 
-    useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -41,7 +40,9 @@ const Code = () => {
         requestAnimationFrame(raf);
 
         if (works.length > 0) {
+
             sections.current.forEach((section) => {
+
                 gsap.to(section.querySelectorAll(".word"), {
                     scrollTrigger: {
                         trigger: section,
@@ -51,8 +52,25 @@ const Code = () => {
                     y: "0",
                     stagger: 0.05,
                 });
+
+                const handleMouseMove = (event) => {
+                    const { clientX, clientY } = event;
+                    gsap.to(section.querySelector("img"), {
+                        x: clientX / 20,
+                        y: clientY / 20,
+                        ease: "power2.out",
+                    });
+                };
+        
+                window.addEventListener("mousemove", handleMouseMove);
+        
+                return () => {
+                    window.removeEventListener("mousemove", handleMouseMove);
+                };
+
             });
         }
+
     }, [works]);
 
     return (
@@ -68,6 +86,7 @@ const Code = () => {
                         className={styles.image}
                         src={work.image}
                         alt={work.title}
+                        ref={imageRef}
                     />
 
                     <div className={styles.titleContainer} ref={wordsContainer}>
