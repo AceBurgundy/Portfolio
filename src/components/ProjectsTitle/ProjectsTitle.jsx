@@ -1,6 +1,7 @@
 import MouseFollower from "../MouseFollower/MouseFollower";
 import React, { useEffect, useRef } from "react";
 import styles from "./ProjectsTitle.module.css";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 
 const ProjectsTitle = () => {
@@ -22,8 +23,11 @@ const ProjectsTitle = () => {
         gsap.to(
             projectTitleChars.current,
             {
-                scrollTrigger: sectionRef.current,
-                duration: 2.5,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "50% bottom"
+                },
+                duration: 2,
                 y: "0",
                 stagger: 0.05,
             },
@@ -42,7 +46,8 @@ const ProjectsTitle = () => {
                         <p>Current</p>
                     </header>
                     {projectTitleString.split("").map((char, index) => (
-                        <p
+                        <Link
+                            to="/code"
                             className={styles.projectTitle}
                             key={index}
                             ref={(element) =>
@@ -50,7 +55,7 @@ const ProjectsTitle = () => {
                             }
                         >
                             {char}
-                        </p>
+                        </Link>
                     ))}
                 </div>
             </section>

@@ -1,0 +1,32 @@
+#workContainer {
+    height: fit-content;
+    width: fit-content;
+}
+
+.page {
+    overflow: scroll;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.image {
+    width: 50%;
+}
+
+.titleContainer {
+    overflow: hidden;
+}
+
+.title {
+    font-family: "Bebas Neue";
+    font-size: 10vw;
+    color: rgb(255, 255, 255);
+    background-color: inherit;
+    display: inline-block;
+    transform: translateY(250px);
+}

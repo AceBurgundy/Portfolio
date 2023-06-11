@@ -1,0 +1,28 @@
+{
+    "works" : [
+        {
+            "title" : "FitPulse",
+            "image" : "../assets/images/FitPulse.webp"
+        },
+        {
+            "title" : "Jigsaw",
+            "image" : "../assets/images/Jigsaw.webp"
+        },
+        {
+            "title" : "ShapeFrenzy",
+            "image" : "../assets/images/ShapeFrenzy.webp"
+        },
+        {
+            "title" : "Nacpan",
+            "image" : "../assets/images/Nacpan.webp"
+        },
+        {
+            "title" : "PenSpark",
+            "image" : "../assets/images/PenSpark.webp"
+        },
+        {
+            "title" : "QuizMe",
+            "image" : "../assets/images/QuizMe.webp"
+        }
+    ]
+}

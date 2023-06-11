@@ -12,3 +12,9 @@
     transition: transform .1s;
     mix-blend-mode: difference;
 }
+
+@media screen and (orientation: portrait) {
+    #follower {
+        display: none;
+    }
+}

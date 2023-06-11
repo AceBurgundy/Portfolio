@@ -1,6 +1,6 @@
 #main {
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr auto;
 }
 
 #about_container {
@@ -13,7 +13,7 @@
 .about_item {
     width: 25%;
     font-family: "Poppins";
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     position: relative;
     transition: 500ms ease;
@@ -35,6 +35,7 @@
     font-family: "Bebas Neue";
     font-size: 40vw;
     line-height: 38vw;
+    height: 32vw;
     display: inline-block;
     cursor: pointer;
     overflow-y: hidden;
@@ -42,9 +43,7 @@
 }
 
 @media screen and (orientation: portrait) {
-    #main {
-        grid-template-rows: 1.5fr 1fr;
-    } 
+
     #about_container {
         flex-direction: column;
         height: 100%;
@@ -63,4 +62,10 @@
         display: flex;
     }
 
+}
+
+@media screen and (orientation: portrait) and (max-height: 570px) and (max-width: 350px) {
+    .about_item {
+        font-size: 0.9rem;
+    }
 }

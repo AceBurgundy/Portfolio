@@ -56,6 +56,7 @@ const About = () => {
                     functionality and deliver a beautiful user interface.
                 </p>
             </div>
+
             <div id={styles.nameContainer}>
                 <div id={styles.firstNameContainer}>
                     {firstName.split("").map((char, index) => (

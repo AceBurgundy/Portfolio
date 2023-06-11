@@ -5,7 +5,6 @@ import gsap from "gsap";
 
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import ProjectsTitle from "../../components/ProjectsTitle/ProjectsTitle";
-import Gallery from "../../components/Gallery/Gallery";
 import About from "../../components/About/About";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +32,6 @@ const Index = () => {
             <LoadingScreen />
             <About />
             <ProjectsTitle />
-            {/* <Gallery /> */}
         </>
     );
 };
