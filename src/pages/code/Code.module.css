@@ -31,3 +31,16 @@
     display: inline-block;
     transform: translateY(250px);
 }
+
+@media screen and (orientation: portrait) {
+    .section {
+        flex-direction: column;
+        gap: 2rem;
+    }        
+    .image {
+        width: 90%;
+    }
+    .title {
+        font-size: 20vw;
+    }
+}
