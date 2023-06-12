@@ -42,5 +42,6 @@
     cursor: pointer;
     overflow-y: hidden;
     color: white;
+    text-decoration: none;
     transform: translateY(1000px);
 }
