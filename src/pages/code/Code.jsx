@@ -119,16 +119,14 @@ const Code = () => {
                         }}
                         className={`page ${styles.section}`}
                     >
-                        {
-                            work.url && 
-                                <a href={work.url} className={styles.link}>See more</a>
-                        }
-                        <img
-                            className={styles.image}
-                            src={work.image}
-                            alt={work.title}
-                            ref={imageRef}
-                        />
+                        <a href={work.url ? work.url : ""} className={styles.link}>
+                            <img
+                                className={styles.image}
+                                src={work.image}
+                                alt={work.title}
+                                ref={imageRef}
+                            />
+                        </a>
 
                         <div
                             className={styles.titleContainer}

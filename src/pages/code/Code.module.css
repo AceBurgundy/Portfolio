@@ -15,27 +15,20 @@
     position: relative;
 }
 
-.link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: calc(1rem + 0.4vw);
-    font-size: 1rem;
-    background-blend-mode: difference;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: "Poppins";
-}
-
 .image {
-    width: 50%;
+    width: 100%;
     position: relative;
 }
 
 .titleContainer {
     overflow: visible;
     overflow-y: hidden;
+}
+
+.link {
+    width: 50%;
+    height: fit-content;
+    overflow: visible;
 }
 
 .title {
