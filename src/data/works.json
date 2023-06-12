@@ -2,7 +2,8 @@
     "works" : [
         {
             "title" : "FitPulse",
-            "image" : "../assets/images/FitPulse.webp"
+            "image" : "../assets/images/FitPulse.webp",
+            "url": "https://github.com/AceBurgundy/FitPulse-Backend"
         },
         {
             "title" : "Jigsaw",
@@ -14,15 +15,18 @@
         },
         {
             "title" : "Nacpan",
-            "image" : "../assets/images/Nacpan.webp"
+            "image" : "../assets/images/Nacpan.webp",
+            "url" : "https://nacpan-beach.vercel.app/"
         },
         {
             "title" : "PenSpark",
-            "image" : "../assets/images/PenSpark.webp"
+            "image" : "../assets/images/PenSpark.webp",
+            "url" : "https://github.com/AceBurgundy/PenSpark-Blog-App"
         },
         {
             "title" : "QuizMe",
-            "image" : "../assets/images/QuizMe.webp"
+            "image" : "../assets/images/QuizMe.webp",
+            "url" : "https://quizeme.vercel.app"
         }
     ]
 }

@@ -105,9 +105,9 @@ const Code = () => {
     return (
         <>
             <LoadingScreen
-                text="Works"
+                text=""
                 backgroundColor="black"
-                loadingColor="white"
+                loadingColor="red"
             />
             <div id={styles.workContainer}>
                 {works.map((work, index) => (
@@ -119,6 +119,10 @@ const Code = () => {
                         }}
                         className={`page ${styles.section}`}
                     >
+                        {
+                            work.url && 
+                                <a href={work.url} className={styles.link}>See more</a>
+                        }
                         <img
                             className={styles.image}
                             src={work.image}
