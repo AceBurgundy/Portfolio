@@ -70,9 +70,45 @@ const Code = () => {
         }
     }, [works]);
 
+    useEffect(() => {
+        const handleOrientationChange = (event) => {
+            const { beta, gamma } = event;
+
+            const movementX = gamma / 30;
+            const movementY = beta / 30;
+
+            gsap.to(imageRef.current, {
+                x: -movementX,
+                y: -movementY,
+                duration: 0.6,
+                ease: "power2.out",
+            });
+        };
+
+        if ("DeviceOrientationEvent" in window) {
+            window.addEventListener(
+                "deviceorientation",
+                handleOrientationChange
+            );
+        }
+
+        return () => {
+            if ("DeviceOrientationEvent" in window) {
+                window.removeEventListener(
+                    "deviceorientation",
+                    handleOrientationChange
+                );
+            }
+        };
+    }, []);
+
     return (
         <>
-            <LoadingScreen text="Works" backgroundColor="black" loadingColor="white"/>
+            <LoadingScreen
+                text="Works"
+                backgroundColor="black"
+                loadingColor="white"
+            />
             <div id={styles.workContainer}>
                 {works.map((work, index) => (
                     <section
