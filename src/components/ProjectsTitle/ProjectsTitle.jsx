@@ -27,7 +27,7 @@ const ProjectsTitle = () => {
                     trigger: sectionRef.current,
                     start: "50% bottom"
                 },
-                duration: 2,
+                duration: 1,
                 y: "0",
                 stagger: 0.05,
             },
