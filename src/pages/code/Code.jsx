@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
+import MouseFollower from "../../components/MouseFollower/MouseFollower"
 
 const colors = [
     "#0053ff",
@@ -21,7 +22,7 @@ const Code = () => {
     const sections = useRef([]);
     const wordsContainer = useRef(null);
     const imageRef = useRef(null);
-
+    const scrollContainerRef = useRef(null);
     const [works, setWorks] = useState([]);
 
     useEffect(() => {
@@ -68,48 +69,18 @@ const Code = () => {
                 };
             });
         }
+
     }, [works]);
-
-    useEffect(() => {
-        const handleOrientationChange = (event) => {
-            const { beta, gamma } = event;
-
-            const movementX = gamma / 30;
-            const movementY = beta / 30;
-
-            gsap.to(imageRef.current, {
-                x: -movementX,
-                y: -movementY,
-                duration: 0.6,
-                ease: "power2.out",
-            });
-        };
-
-        if ("DeviceOrientationEvent" in window) {
-            window.addEventListener(
-                "deviceorientation",
-                handleOrientationChange
-            );
-        }
-
-        return () => {
-            if ("DeviceOrientationEvent" in window) {
-                window.removeEventListener(
-                    "deviceorientation",
-                    handleOrientationChange
-                );
-            }
-        };
-    }, []);
 
     return (
         <>
-            <LoadingScreen
-                text=""
-                backgroundColor="black"
-                loadingColor="red"
-            />
-            <div id={styles.workContainer}>
+            <LoadingScreen text="" backgroundColor="black" loadingColor="red" />
+            <div
+                id={styles.workContainer}
+                className={styles.scrollContainer}
+                ref={scrollContainerRef}
+            >
+                <MouseFollower boundTo={scrollContainerRef}/>
                 {works.map((work, index) => (
                     <section
                         key={index}
@@ -119,7 +90,10 @@ const Code = () => {
                         }}
                         className={`page ${styles.section}`}
                     >
-                        <a href={work.url ? work.url : ""} className={styles.link}>
+                        <a
+                            href={work.url ? work.url : ""}
+                            className={styles.link}
+                        >
                             <img
                                 className={styles.image}
                                 src={work.image}

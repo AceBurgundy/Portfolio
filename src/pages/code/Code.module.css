@@ -1,6 +1,5 @@
 #workContainer {
     height: fit-content;
-    /* display: flex; */
     width: fit-content;
 }
 
@@ -13,6 +12,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    display: flex;
 }
 
 .image {
@@ -23,17 +23,18 @@
 .titleContainer {
     overflow: visible;
     overflow-y: hidden;
+    margin-right: 2rem;
 }
 
 .link {
-    width: 50%;
+    width: 60%;
     height: fit-content;
     overflow: visible;
 }
 
 .title {
     font-family: "Bebas Neue";
-    font-size: 10vw;
+    font-size: 9vw;
     color: rgb(255, 255, 255);
     background-color: inherit;
     display: inline-block;
