@@ -13,6 +13,7 @@
     justify-content: center;
     position: relative;
     display: flex;
+    margin: 0 auto;
 }
 
 .image {
@@ -51,7 +52,6 @@
         width: 90%;
     }
 .link {
-margin: 0 auto;
 width: 100%;
 }
 .titleContainer {
