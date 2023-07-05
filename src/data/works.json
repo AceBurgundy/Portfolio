@@ -21,7 +21,7 @@
         {
             "title" : "PenSpark",
             "image" : "../assets/images/PenSpark.webp",
-            "url" : "zemho.pythonanywhere.com"
+            "url" : "https://zemho.pythonanywhere.com"
         },
         {
             "title" : "QuizMe",
